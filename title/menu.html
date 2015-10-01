@@ -1,19 +1,31 @@
 <!DOCTYPE html>
+<!-- v0.14 made by shimizu  -->
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>メインメニュー</title>
 </head>
 <body>
+好きなゲームを選んでね！！
 
-<form>
-<input type="button" value="TYPING" onclick="location.href='../typ/index.html'">
-</form>
+<!-- ボタンは【ゲームが完成してから(仮でも正常動作すればOK)】各自コピペして追加すること -->
+<!-- コピペここから  -->
+
+<a href="../typ/index.html">
+<img src="src/ty_btn.png" 
+style="position: absolute; left:5px; top:5%" 
+onmousedown="this.src='src/ty_btn_ent.png'" 
+onmouseout="this.src='src/ty_btn.png'">
+</a>
+
+<!-- コピペここまで(画像ソースのパスやリンクの変更を忘れないこと)  -->
+
 <a href="index.html">
 <img src="src/b_btn.png" 
-style="position: absolute; left:0px; top:50%" 
+style="position: absolute; left:5px; top:50%" 
 onmousedown="this.src='src/b_btn_ent.png'" 
 onmouseout="this.src='src/b_btn.png'">
 </a>
+
 </body>
 </html>
