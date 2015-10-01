@@ -14,3 +14,7 @@ v0.11
 v0.12
 一部ファイル名変更
 title.html -> menu.html
+
+v0.13
+menu.html内にタイトルに戻る画像ボタンを追加
+index.htmlページ構成変更
