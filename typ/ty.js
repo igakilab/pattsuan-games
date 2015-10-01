@@ -135,19 +135,27 @@ function result(){
     var fin="GAME終了　時間："+sec+"秒"+msec
     var wng="ミスタイプ数 : "+wcn;
 
-    var exit=document.createElement("BUTTON");
-    exit.type="button";
-    exit.value="EXIT";
-    exit.onClick="window.open('about:blank','_self').close()";
+
+
 
     //問題枠にゲーム終了を表示
     document.getElementById("waku").innerHTML = fin;
     document.getElementById("q_count").innerHTML = wng;
-    document.getElementById("ext").appendChild(exit);
 
+    var xhr=new XMLHttpRequest();
+
+    xhr.onreadystatechange=readyStateChange();
+
+    xhr.open("GET",'test.txt',false);
+    xhr.send("");
 
 }
 
+function readyStateChange(){
+	if(req.readyState==4){
+		alert(req.responseText);
+	}
+}
 
 //キー入力を受け取る関数
 function typeGame(evt)
