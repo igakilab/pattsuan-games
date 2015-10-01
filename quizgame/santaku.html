@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <title>SPI4択クイズ</title>
 </head>
-<body>
+<body bgcolor = "#00ff00">
 <h1>4択クイズ</h1>
 <hr>
 <h2>問題</h2>
@@ -28,11 +28,17 @@ qa[8] = ["数列7,10,13,16,19・・・がある。この数列の第10項（10�
 qa[9] = ["2進法＋2進法の計算です。111＋1010の答えを2進法で求めなさい？","11100","1100","11101","10001",4];
 
 //初期設定
-count = 0;//問題番号
 q_sel = 4;//選択肢の数
+//seikai_cnt = 0;//正解の数
+//fuseikai_cnt = 0;//不正解の数
 
-//最初の問題
-quiz();
+setReady();
+
+function setReady(){
+	count = 0;//問題番号
+	ansers = new Array();//解答記録
+	quiz();
+}
 
 //問題表示
 function quiz(){
@@ -49,16 +55,24 @@ function quiz(){
 
 //解答表示
 function anser(num) {
-	var s;
+	var s, n, seikai = 0, fuseikai = 0;
 	s = (count + 1) + "問目：";
 	//答え合わせ
 	if (num == qa[count][q_sel + 1]) {
 		//正解
 		s += "○" + qa[count][num];
+		ansers[count] = "正解";
+		/*seikai++;
+		seikai = "正解" + seikai;*/
 	} else {
 		s += "×" + qa[count][num];
+		ansers[count] = "不正解";
+		/*fuseikai++;
+		fuseikai = "不正解"　+ fuseikai;*/
 	}
-	document.getElementById("text_a").innerHTML = s;
+	document.getElementById("text_a").innerHTML =  s;
+	//document.getElementById("text_a").innerHTML = seikai;
+	//document.getElementById("text_a").innerHTML = fuseikai;
 
 	//次の問題を表示
 	count++;
@@ -66,11 +80,30 @@ function anser(num) {
 		quiz();
 	}else{
 		//終了
-		document.getElementById("text_q").innerHTML = "";
-		document.getElementById("text_s").innerHTML = "";
+		s = "<table border='2'><caption>成績発表</caption>";
+		//1行目
+		s += "<tr><th>問題</th>";
+		for (n=0;n<qa.length;n++) {
+			s += "<th>" + (n+1) + "</th>";
+		}
+		s += "</tr>";
+		
+		//2行目
+		s += "<tr><th>成績</th>";
+		for (n=0;n<qa.length;n++) {
+			s += "<td>" + ansers[n] + "</td>";
+		}
+		s += "</tr>";
+		s += "</table>";
+		document.getElementById("text_q").innerHTML = s;
+		
+		//次の選択肢
+		s = "【<a href='javascript:history.back()'>前のページに戻る</a>】";
+		s += "【<a href='javascript:setReady()'>同じ問題を最初から</a>】";
+		document.getElementById("text_s").innerHTML = s;
 	}	
 }
-
+function seitoritu()
 
 </script>
 </body>
