@@ -103,22 +103,46 @@ function gameSet()
 
 
   //問題枠に表示する
+  document.getElementById("waku1").style.color = '#0000ff';
+  document.getElementById("waku2").style.color = '#ff0000';
+  
+  document.getElementById("waku").style.fontSize = '48px';
+  document.getElementById("waku1").style.fontSize = '48px';
+  document.getElementById("waku2").style.fontSize = '48px';
+
   document.getElementById("waku").innerHTML = mondai;
+   document.getElementById("waku1").innerHTML = "";
+    document.getElementById("waku2").innerHTML = "";
+  
   document.getElementById("q_count").innerHTML = q_cnt;
+
 }
 
 //文字切り取り関数
-function sub_str()
+function sub_str(s,l)
 {
 	//問題文の頭の一文字を切り取る
-      mondai= mondai.substring(1,mondai.length);
+      //mondai= mondai.substring(1,mondai.length);
+      
 
       //問題枠に表示する
-      document.getElementById("waku").innerHTML = mondai;
+      //document.getElementById("waku").innerHTML = mondai;
+      
+      
+      
+      
+      document.getElementById("waku1").innerHTML = mondai.slice(0,s);
+      document.getElementById("waku2").innerHTML = mondai.charAt(s);
+      document.getElementById("waku").innerHTML = mondai.slice(s+1,l);
+      
 
 }
 
 function result(){
+
+document.getElementById("waku1").innerHTML = "";
+    document.getElementById("waku2").innerHTML = "";
+
 	//全文字入力していたら、終了時間を記録する
     typEnd = new Date();
 
@@ -191,7 +215,7 @@ function typeGame(evt)
     //全文字入力したか確認
     if ( cnt < g_lg[0])
     {
-      sub_str();
+      sub_str(cnt,lg);
 
     }
     else
@@ -206,6 +230,7 @@ function typeGame(evt)
     }
 
   }else{
+      
       wcn++;
   }
 
