@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <title>SPI4択クイズ</title>
 </head>
-<body bgcolor = "#00ff00">
+<body bgcolor = "#a7f1ff">
 <h1>4択クイズ</h1>
 <hr>
 <h2>問題</h2>
@@ -45,12 +45,12 @@ function quiz(){
 	var s, n;
 	//問題
 	ran = Math.floor(Math.random()*qa.length);//問題をランダムにする
-	document.getElementById("text_q").innerHTML = (count + 1) + "問目 : " + qa[ran][0];	
+	document.getElementById("text_q").innerHTML = (count + 1) + "問目 : " + qa[ran][0];
 	//選択肢
 	s = "";
 	for(n=1;n<=q_sel;n++){
 		if(qa[ran][n] != ""){
-			s += "[<a href='javascript:anser(" + n + ")'>" + n + ":" + qa[count][n] + "</a>]";
+			s += "[<a href='javascript:anser(" + n + ")'>" + n + ":" + qa[ran][n] + "</a>]";
 		}
 	}
 	document.getElementById("text_s").innerHTML = s;
@@ -84,7 +84,7 @@ function anser(num) {
 			s += "<th>" + (n+1) + "</th>";
 		}
 		s += "</tr>";
-		
+
 		//2行目
 		s += "<tr><th>成績</th>";
 		for (n=0;n<qa.length;n++) {
@@ -93,12 +93,12 @@ function anser(num) {
 		s += "</tr>";
 		s += "</table>";
 		document.getElementById("text_q").innerHTML = s;
-		
+
 		//次の選択肢
 		s = "【<a href='javascript:history.back()'>前のページに戻る</a>】";
 		s += "【<a href='javascript:setReady()'>同じ問題を最初から</a>】";
 		document.getElementById("text_s").innerHTML = s;
-	}	
+	}
 }
 
 </script>
