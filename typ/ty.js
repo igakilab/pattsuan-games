@@ -105,7 +105,7 @@ function gameSet()
   //問題枠に表示する
   document.getElementById("waku1").style.color = '#0000ff';
   document.getElementById("waku2").style.color = '#ff0000';
-  
+
   document.getElementById("waku").style.fontSize = '48px';
   document.getElementById("waku1").style.fontSize = '48px';
   document.getElementById("waku2").style.fontSize = '48px';
@@ -113,7 +113,7 @@ function gameSet()
   document.getElementById("waku").innerHTML = mondai;
    document.getElementById("waku1").innerHTML = "";
     document.getElementById("waku2").innerHTML = "";
-  
+
   document.getElementById("q_count").innerHTML = q_cnt;
 
 }
@@ -123,18 +123,18 @@ function sub_str(s,l)
 {
 	//問題文の頭の一文字を切り取る
       //mondai= mondai.substring(1,mondai.length);
-      
+
 
       //問題枠に表示する
       //document.getElementById("waku").innerHTML = mondai;
-      
-      
-      
-      
+
+
+
+
       document.getElementById("waku1").innerHTML = mondai.slice(0,s);
       document.getElementById("waku2").innerHTML = mondai.charAt(s);
       document.getElementById("waku").innerHTML = mondai.slice(s+1,l);
-      
+
 
 }
 
@@ -159,12 +159,17 @@ document.getElementById("waku1").innerHTML = "";
     var fin="GAME終了　時間："+sec+"秒"+msec
     var wng="ミスタイプ数 : "+wcn;
 
+    var sc=100000-(keika+wcn*10);
+
+    var sc_s="スコア : "+sc;
+
 
 
 
     //問題枠にゲーム終了を表示
     document.getElementById("waku").innerHTML = fin;
     document.getElementById("q_count").innerHTML = wng;
+    document.getElementById("score").innerHTML = sc_s;
 
     var xhr=new XMLHttpRequest();
 
@@ -230,7 +235,7 @@ function typeGame(evt)
     }
 
   }else{
-      
+
       wcn++;
   }
 
