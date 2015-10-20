@@ -14,6 +14,8 @@ var moji = new Array("A","B","C","D","E","F","G","H","I",
 //問題として入力する文字列
 //単語は","で区切って入力
 var moji1 = "APPLE,BANANA,GRAPE,PEACH,FRUIT";
+//  ↑↓は【必ず】対応させて入力すること(見本と実際の問題が間違って出力されるから)
+var mihon = "あ,い,う,え,お,か";
 
 //キーコードを格納する配列
 var kcode = new Array(65,66,67,68,69,70,71,72,73,
@@ -33,9 +35,14 @@ var g_lg=new Array();
 var mondai;       //問題の文字列を格納
 var cnt=0;             //何問目か格納
 var wcn=0;			  //ミスタイプカウント
-var qs=5;				//問題数
+var qs=5;				//問題数 (増減に合わせて変更すること)
 var q_cnt=0;
 var typStart,typEnd;   //開始時と終了時の時刻を格納
+
+var mihon_s;			//スクリーン出力用変数
+
+var mihon_arr=new Array(); //問題見本分割配列
+
 
 
 //0～4までの乱数を5個作成して配列rmに格納する関数
@@ -94,11 +101,14 @@ function gameSet()
   //乱数作成関数の呼び出し
   set();
 
+  mihon_arr=mihon.split(",");
+  mihon_s=mihon_arr[rm[0]];
   //問題文の作成
 
   	for(var j=0;j<g_lg[0];j++)
   	{
     	mondai=mondai+moji[rnd[j]];
+
     }
 
 
@@ -106,13 +116,25 @@ function gameSet()
   document.getElementById("waku1").style.color = '#0000ff';
   document.getElementById("waku2").style.color = '#ff0000';
 
-  document.getElementById("waku").style.fontSize = '48px';
-  document.getElementById("waku1").style.fontSize = '48px';
-  document.getElementById("waku2").style.fontSize = '48px';
+  document.getElementById("waku").style.fontSize = '24px';
+  document.getElementById("waku1").style.fontSize = '24px';
+  document.getElementById("waku2").style.fontSize = '24px';
+  document.getElementById("mihon").style.fontSize = '48px'
 
-  document.getElementById("waku").innerHTML = mondai;
-   document.getElementById("waku1").innerHTML = "";
-    document.getElementById("waku2").innerHTML = "";
+
+  document.getElementById("mihon").innerHTML=mihon_s;
+
+  //-->del 2015/10/20
+  //document.getElementById("waku").innerHTML = mondai;
+   //document.getElementById("waku1").innerHTML = "";
+    //document.getElementById("waku2").innerHTML = "";
+  //<--del end
+
+  //-->add 2015/10/20
+  document.getElementById("waku1").innerHTML = mondai.slice(0,0);
+  document.getElementById("waku2").innerHTML = mondai.charAt(0);
+  document.getElementById("waku").innerHTML = mondai.slice(1,mondai.length);
+  //<--add end
 
   document.getElementById("q_count").innerHTML = q_cnt;
 
@@ -121,27 +143,29 @@ function gameSet()
 //文字切り取り関数
 function sub_str(s,l)
 {
+	//-->del 2015/10/10
 	//問題文の頭の一文字を切り取る
       //mondai= mondai.substring(1,mondai.length);
 
 
       //問題枠に表示する
       //document.getElementById("waku").innerHTML = mondai;
+	//<--del end
 
 
-
-
+	//-->add 2015/10/10
       document.getElementById("waku1").innerHTML = mondai.slice(0,s);
       document.getElementById("waku2").innerHTML = mondai.charAt(s);
       document.getElementById("waku").innerHTML = mondai.slice(s+1,l);
-
+      //<-- add end
 
 }
 
 function result(){
 
-document.getElementById("waku1").innerHTML = "";
+	document.getElementById("waku1").innerHTML = "";
     document.getElementById("waku2").innerHTML = "";
+    document.getElementById("mihon").innerHTML = "";
 
 	//全文字入力していたら、終了時間を記録する
     typEnd = new Date();
@@ -159,7 +183,7 @@ document.getElementById("waku1").innerHTML = "";
     var fin="GAME終了　時間："+sec+"秒"+msec
     var wng="ミスタイプ数 : "+wcn;
 
-    var sc=100000-(keika+wcn*10);
+    var sc=100000-(keika*10+wcn*100);
 
     var sc_s="スコア : "+sc;
 
