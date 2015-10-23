@@ -5,27 +5,42 @@
 <meta charset="UTF-8">
 <title>メインメニュー</title>
 </head>
-<body>
-好きなゲームを選んでね！！
+<body background="src/bg084_10.gif">
+<center>
+<p style="color: orange;background-color: black;font-size:24pt"><Marquee direction="left">好きなゲームを選んでね！！</Marquee></span>
 
 <!-- ボタンは【ゲームが完成してから(仮でも正常動作すればOK)】各自コピペして追加すること -->
 <!-- コピペここから  -->
 
 <a href="../typ/index.html">
 <img src="src/ty_btn.png" 
-style="position: absolute; left:5px; top:5%" 
+style="position: fixed; left:35%; top:15%" 
 onmousedown="this.src='src/ty_btn_ent.png'" 
 onmouseout="this.src='src/ty_btn.png'">
+</a>
+
+<a href="../qz/index.html">
+<img src="src/qz_btn.png" 
+style="position: fixed; right:35%; top:15%" 
+onmousedown="this.src='src/qz_btn_ent.png'" 
+onmouseout="this.src='src/qz_btn.png'">
+</a>
+
+<a href="../tg/index.html">
+<img src="src/tg_btn.png" 
+style="position: fixed; left:35%; top:30%" 
+onmousedown="this.src='src/tg_btn_ent.png'" 
+onmouseout="this.src='src/tg_btn.png'">
 </a>
 
 <!-- コピペここまで(画像ソースのパスやリンクの変更を忘れないこと)  -->
 
 <a href="index.html">
 <img src="src/b_btn.png" 
-style="position: absolute; left:5px; top:50%" 
+style="position: fixed; left:35%; top:50%" 
 onmousedown="this.src='src/b_btn_ent.png'" 
 onmouseout="this.src='src/b_btn.png'">
 </a>
-
+</center>
 </body>
 </html>
