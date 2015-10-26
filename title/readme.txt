@@ -1,20 +1,31 @@
-�^�C�g���y�[�W
+﻿タイトルページ
 
-index.html�N���b�N��Astart�{�^������
-�e���ڂ�����
+index.htmlクリック後、startボタン押下
+各項目を押下
 
-�ǉ�����摜�Ȃǂ�����ꍇ�́Asrc�t�H���_�ɓ���邱��
+追加する画像などがある場合は、srcフォルダに入れること
+
+ゲームは各自でhtmlソースにしたがって追加すること
 
 v0.10
-�쐬
+作成
 
 v0.11
-�X�^�[�g�{�^�������ւ�
+スタートボタン差し替え
 
 v0.12
-�ꕔ�t�@�C�����ύX
+一部ファイル名変更
 title.html -> menu.html
 
 v0.13
-menu.html���Ƀ^�C�g���ɖ߂�摜�{�^����ǉ�
-index.html�y�[�W�\���ύX
+menu.html内にタイトルに戻る画像ボタンを追加
+index.htmlページ構成変更
+
+v0.14
+menu.html内のゲーム選択ボタンを画像ボタンに変更
+仮メッセージ追加
+画像ボタン追加
+
+v0.80
+背景追加
+画像ボタン追加
