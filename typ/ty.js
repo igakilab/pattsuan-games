@@ -82,10 +82,13 @@ function set()
 
 function gameKanri()
 {
+	
+	
 	gameSet();
+	
 	document.onkeydown = typeGame;  //キー押下時に関数typeGame()を呼び出す
 
-
+obj_link.disabled = true;
 }
 
 
@@ -170,6 +173,7 @@ function result(){
     document.getElementById("mihon").innerHTML = "";
     document.getElementById("q_count").innerHTML= "";
 
+	var obj_link;
 	//全文字入力していたら、終了時間を記録する
     typEnd = new Date();
 
@@ -203,6 +207,14 @@ function result(){
     document.getElementById("perfect").innerHTML = pct;
     document.getElementById("wrgcnt").innerHTML = wng;
     document.getElementById("score").innerHTML = sc_s;
+    
+    
+    obj_link=document.getElementById( "ext" ); 
+    obj_link.style.display="";
+    
+    
+    
+    
 
     var xhr=new XMLHttpRequest();
 
@@ -260,7 +272,7 @@ function typeGame(evt)
     else
     {
     	q_cnt++;
-    	if(q_cnt==3){
+    	if(q_cnt==2){
     		result();
     	}else{
     		if(p_flag==0)p_cnt++;
@@ -273,7 +285,7 @@ function typeGame(evt)
 	  p_flag=1;
       wcn++;
       document.bgColor="#dc143c";
-      setTimeout("document.bgColor='#ffffff';",100);
+      setTimeout("document.bgColor='#ccffcc';",100);
   }
 
 }
