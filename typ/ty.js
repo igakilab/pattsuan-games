@@ -272,7 +272,7 @@ function typeGame(evt)
     else
     {
     	q_cnt++;
-    	if(q_cnt==2){
+    	if(q_cnt==10){
     		result();
     	}else{
     		if(p_flag==0)p_cnt++;
