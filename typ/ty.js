@@ -13,7 +13,7 @@ var moji = new Array("A","B","C","D","E","F","G","H","I",
 
 //問題として入力する文字列
 //単語は","で区切って入力
-var moji1 = "UIRUSU,MEIWAKUME-RU,NARISUMASI,HUSEIAKUSESU,ZYOUHOUROUEI,KOZINNZYOUHOU,ZEIZYAKUSEI,SAIBA-TERO,SUMA-TOFONNAPURI,KAIZAN,PASUWA-DO,SEKYURITEXI-,WANKURIKKUSAGI,NISESAITO,UIRUSUTAISAKUSOFUTO,ENNKAKUSOUSA";
+var moji1 = "UIRUSU,MEIWAKUME-RU,NARISUMASI,HUSEIAKUSESU,ZYOUHOUROUEI,KOZINNZYOUHOU,ZEIZYAKUSEI,SAIBA-TERO,SUMA-TOHUXONNAPURI,KAIZAN,PASUWA-DO,SEKYURITEXI-,WANNKURIKKUSAGI,NISESAITO,UIRUSUTAISAKUSOHUTO,RANNSAMUUXEA,ENNKAKUSOUSA";
 //  ↑↓は【必ず】対応させて入力すること(見本と実際の問題が間違って出力されるから)
 var mihon = "ウイルス,迷惑メール,なりすまし,不正アクセス,情報漏えい,個人情報,ぜい弱性,サイバーテロ,スマートフォンアプリ,改ざん,パスワード,セキュリティー,ワンクリック詐欺,偽サイト,ウイルス対策ソフト,ランサムウェア,遠隔操作";
 //キーコードを格納する配列
@@ -34,7 +34,7 @@ var g_lg=new Array();
 var mondai;       //問題の文字列を格納
 var cnt=0;             //何問目か格納
 var wcn=0;			  //ミスタイプカウント
-var qs=16;				//問題数 (増減に合わせて変更すること)
+var qs=17;				//問題数 (増減に合わせて変更すること)
 var q_cnt=0;
 var typStart,typEnd;   //開始時と終了時の時刻を格納
 var sc_cnt=0;
@@ -82,10 +82,13 @@ function set()
 
 function gameKanri()
 {
+	
+	
 	gameSet();
+	
 	document.onkeydown = typeGame;  //キー押下時に関数typeGame()を呼び出す
 
-
+obj_link.disabled = true;
 }
 
 
@@ -115,7 +118,7 @@ function gameSet()
 
 
   //問題枠に表示する
-  document.getElementById("waku1").style.color = '#0000ff';
+  document.getElementById("waku1").style.color = '#dcdcdc';
   document.getElementById("waku2").style.color = '#ff0000';
 
   document.getElementById("waku").style.fontSize = '24px';
@@ -168,7 +171,9 @@ function result(){
 	document.getElementById("waku1").innerHTML = "";
     document.getElementById("waku2").innerHTML = "";
     document.getElementById("mihon").innerHTML = "";
+    document.getElementById("q_count").innerHTML= "";
 
+	var obj_link;
 	//全文字入力していたら、終了時間を記録する
     typEnd = new Date();
 
@@ -182,20 +187,34 @@ function result(){
     var msec = keika % 1000;
 
     //問題終了を告げる文字列を作成
-    var fin="GAME終了　時間："+sec+"秒"+msec
-    var wng="ミスタイプ数 : "+wcn;
+    var fin="GAME終了";
+    var tm="時間："+sec+"秒"+msec
+    var wng="ミスタイプ数 :"+wcn;
+    var pct="パーフェクト:"+p_cnt;
+    var mcnt="打った文字数:"+sc_cnt;
 
     var sc=100000-(keika*2+wcn*100-sc_cnt*100-p_cnt*1000);
 
-    var sc_s="スコア : "+sc+" パーフェクト: "+p_cnt+" 打った文字数: "+sc_cnt;
+    var sc_s="スコア : "+sc;
 
 
 
 
     //問題枠にゲーム終了を表示
-    document.getElementById("waku").innerHTML = fin;
-    document.getElementById("q_count").innerHTML = wng;
+    document.getElementById("fin").innerHTML = fin;
+    document.getElementById("time").innerHTML = tm;
+    document.getElementById("mojicnt").innerHTML = mcnt;
+    document.getElementById("perfect").innerHTML = pct;
+    document.getElementById("wrgcnt").innerHTML = wng;
     document.getElementById("score").innerHTML = sc_s;
+    
+    
+    obj_link=document.getElementById( "ext" ); 
+    obj_link.style.display="";
+    
+    
+    
+    
 
     var xhr=new XMLHttpRequest();
 
@@ -265,6 +284,8 @@ function typeGame(evt)
   }else{
 	  p_flag=1;
       wcn++;
+      document.bgColor="#dc143c";
+      setTimeout("document.bgColor='#ccffcc';",100);
   }
 
 }
