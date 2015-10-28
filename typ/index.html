@@ -2,11 +2,51 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>タイピングゲーム</title>
 </head>
-<body>
-<form>
-<input type="button" value="START" onClick="window.open('./typ.html','','width=500,height=400')">
-</form>
+<body bgcolor="#ccffcc">
+<center>
+
+<p style = "font-size:36pt">タイピングゲーム</p>
+
+<p style = "font-size:24pt">**ルール**</p>
+表示されているセキュリティに関する言葉をキーボードで入力しよう！<br>
+早ければ早いほど、
+入力した文字が多いほど<br>
+そして、間違い入力が少なければ少ないほど良いスコアがでるよ！<br>
+
+<p style = "font-size:18pt;color:red">注意！！</p>
+IMEの設定が<em style="color:red">半角英数字</em>になっているかを確認してね！(なっていないと正しく入力されません)<br>
+なっていない時はは半角/全角キーを押してね。<br>
+
+<p>下の表の左側にある文字は、表の右側のように入力します</p>
+<table border=1>
+<tr><th>入力する文字</th><th>ローマ字</th></tr>
+<tr><td>ち</td><td>ti</td></tr>
+<tr><td>ふ</td><td>hu</td></tr>
+<tr><td>じ</td><td>zi</td></tr>
+<tr><td>ちゃ</td><td>tya</td></tr>
+<tr><td>ちゅ</td><td>tyu</td></tr>
+<tr><td>ちょ</td><td>tyo</td></tr>
+<tr><td>じゃ</td><td>zya</td></tr>
+<tr><td>じゅ</td><td>zyu</td></tr>
+<tr><td>じょ</td><td>zyo</td></tr>
+<tr><td>を</td><td>wo</td></tr>
+<tr><td>ん</td><td>nn</td></tr>
+<tr><td>ぁ ぃ ぅ ぇ ぉ</td><td>xa xi xu xe xo</td></tr>
+</table>
+<br>
+<br>
+<a href="../title/menu.html">
+<img src="src/g_b_btn.png" 
+style = "position:relative ; bottom:3% ;left:15%"
+onmousedown="this.src='src/g_b_btn_ent.png'" 
+onmouseout="this.src='src/g_b_btn.png'">
+<a href="typ.html">
+<img src="src/st_btn.png" 
+style = "position:relative ; bottom:3% ;right:15%"
+onmousedown="this.src='src/st_btn_ent.png'" 
+onmouseout="this.src='src/st_btn.png'">
+</center>
 </body>
 </html>
