@@ -13,7 +13,7 @@ var moji = new Array("A","B","C","D","E","F","G","H","I",
 
 //問題として入力する文字列
 //単語は","で区切って入力
-var moji1 = "UIRUSU,MEIWAKUME-RU,NARISUMASI,HUSEIAKUSESU,ZYOUHOUROUEI,KOZINNZYOUHOU,ZEIZYAKUSEI,SAIBA-TERO,SUMA-TOHUXONNAPURI,KAIZAN,PASUWA-DO,SEKYURITEXI-,WANNKURIKKUSAGI,NISESAITO,UIRUSUTAISAKUSOHUTO,RANNSAMUUXEA,ENNKAKUSOUSA";
+var moji1 = "UIRUSU,MEIWAKUME-RU,NARISUMASI,HUSEIAKUSESU,ZYOUHOUROUEI,KOZINNZYOUHOU,ZEIZYAKUSEI,SAIBA-TERO,SUMA-TOFONNAPURI,KAIZAN,PASUWA-DO,SEKYURITEXI-,WANNKURIKKUSAGI,NISESAITO,UIRUSUTAISAKUSOHUTO,RANNSAMUUXEA,ENNKAKUSOUSA";
 //  ↑↓は【必ず】対応させて入力すること(見本と実際の問題が間違って出力されるから)
 var mihon = "ウイルス,迷惑メール,なりすまし,不正アクセス,情報漏えい,個人情報,ぜい弱性,サイバーテロ,スマートフォンアプリ,改ざん,パスワード,セキュリティー,ワンクリック詐欺,偽サイト,ウイルス対策ソフト,ランサムウェア,遠隔操作";
 //キーコードを格納する配列
@@ -193,7 +193,9 @@ function result(){
     var pct="パーフェクト:"+p_cnt;
     var mcnt="打った文字数:"+sc_cnt;
 
-    var sc=100000-(keika*2+wcn*100-sc_cnt*100-p_cnt*1000);
+    var sc=100000-(keika+wcn*100-sc_cnt*100-p_cnt*1000);
+    
+    if(sc<0)sc=0;
 
     var sc_s="スコア : "+sc;
 
@@ -272,7 +274,7 @@ function typeGame(evt)
     else
     {
     	q_cnt++;
-    	if(q_cnt==10){
+    	if(q_cnt==2){
     		result();
     	}else{
     		if(p_flag==0)p_cnt++;
