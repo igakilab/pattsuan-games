@@ -13,9 +13,17 @@ var moji = new Array("A","B","C","D","E","F","G","H","I",
 
 //問題として入力する文字列
 //単語は","で区切って入力
-var moji1 = "UIRUSU,MEIWAKUME-RU,NARISUMASI,HUSEIAKUSESU,ZYOUHOUROUEI,KOZINNZYOUHOU,ZEIZYAKUSEI,SAIBA-TERO,SUMA-TOFONNAPURI,KAIZAN,PASUWA-DO,SEKYURITEXI-,WANNKURIKKUSAGI,NISESAITO,UIRUSUTAISAKUSOHUTO,RANNSAMUUXEA,ENNKAKUSOUSA";
+var moji1 = "UIRUSU,MEIWAKUME-RU,NARISUMASI,HUSEIAKUSESU,ZYOUHOUROUEI," +
+		"KOZINNZYOUHOU,ZEIZYAKUSEI,SAIBA-TERO,SUMA-TOFONNAPURI,KAIZAN," +
+		"PASUWA-DO,SEKYURITEXI-,WANNKURIKKUSAGI,NISESAITO,UIRUSUTAISAKUSOHUTO," +
+		"RANNSAMUUXEA,ENNKAKUSOUSA,HYOUTEKIGATAKOUGEKI,ANNGOUKA,FISSINNGUSAGI," +
+		"MAINANNBA-SEIDO";
 //  ↑↓は【必ず】対応させて入力すること(見本と実際の問題が間違って出力されるから)
-var mihon = "ウイルス,迷惑メール,なりすまし,不正アクセス,情報漏えい,個人情報,ぜい弱性,サイバーテロ,スマートフォンアプリ,改ざん,パスワード,セキュリティー,ワンクリック詐欺,偽サイト,ウイルス対策ソフト,ランサムウェア,遠隔操作";
+var mihon = "ウイルス,迷惑メール,なりすまし,不正アクセス,情報漏えい," +
+		"個人情報,ぜい弱性,サイバーテロ,スマートフォンアプリ,改ざん," +
+		"パスワード,セキュリティー,ワンクリック詐欺,偽サイト,ウイルス対策ソフト," +
+		"ランサムウェア,遠隔操作,標的型攻撃,暗号化,フィッシング詐欺," +
+		"マイナンバー制度";
 //キーコードを格納する配列
 var kcode = new Array(65,66,67,68,69,70,71,72,73,
                       74,75,76,77,78,79,80,81,82,
@@ -34,7 +42,7 @@ var g_lg=new Array();
 var mondai;       //問題の文字列を格納
 var cnt=0;             //何問目か格納
 var wcn=0;			  //ミスタイプカウント
-var qs=17;				//問題数 (増減に合わせて変更すること)
+var qs=21;				//問題数 (増減に合わせて変更すること)
 var q_cnt=0;
 var typStart,typEnd;   //開始時と終了時の時刻を格納
 var sc_cnt=0;
@@ -82,10 +90,10 @@ function set()
 
 function gameKanri()
 {
-	
-	
+
+
 	gameSet();
-	
+
 	document.onkeydown = typeGame;  //キー押下時に関数typeGame()を呼び出す
 
 obj_link.disabled = true;
@@ -194,7 +202,7 @@ function result(){
     var mcnt="打った文字数:"+sc_cnt;
 
     var sc=100000-(keika+wcn*100-sc_cnt*100-p_cnt*1000);
-    
+
     if(sc<0)sc=0;
 
     var sc_s="スコア : "+sc;
@@ -209,14 +217,14 @@ function result(){
     document.getElementById("perfect").innerHTML = pct;
     document.getElementById("wrgcnt").innerHTML = wng;
     document.getElementById("score").innerHTML = sc_s;
-    
-    
-    obj_link=document.getElementById( "ext" ); 
+
+
+    obj_link=document.getElementById( "ext" );
     obj_link.style.display="";
-    
-    
-    
-    
+
+
+
+
 
     var xhr=new XMLHttpRequest();
 
