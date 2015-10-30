@@ -15,17 +15,17 @@ var moji = new Array("A","B","C","D","E","F","G","H","I",
 //単語は","で区切って入力
 var moji1 = "UIRUSU,MEIWAKUME-RU,NARISUMASI,HUSEIAKUSESU,ZYOUHOUROUEI," +
 		"KOZINNZYOUHOU,ZEIZYAKUSEI,SAIBA-TERO,SUMA-TOFONNAPURI,KAIZAN," +
-		"PASUWA-DO,SEKYURITEXI-,WANNKURIKKUSAGI,NISESAITO,UIRUSUTAISAKUSOHUTO," +
-		"RANNSAMUUXEA,ENNKAKUSOUSA,HYOUTEKIGATAKOUGEKI,ANNGOUKA,FISSINNGUSAGI," +
-		"MAINANNBA-SEIDO,BAKKUAPPU,SUPAIUXEA,TOROINOMOKUBA,HUMIDAI," +
-		"RISUTOGATAKOUGEI";
+		"PASUWA-DO,SEKYURITHI-,WANNKURIKKUSAGI,NISESAITO,UIRUSUTAISAKUSOHUTO," +
+		"RANNSAMUWEA,ENNKAKUSOUSA,HYOUTEKIGATAKOUGEKI,ANNGOUKA,FISSINNGUSAGI," +
+		"MAINANNBA-SEIDO,BAKKUAPPU,SUPAIUWEA,TOROINOMOKUBA,HUMIDAI," +
+		"RISUTOGATAKOUGEI,BOTTO,MARUWEA";
 //  ↑↓は【必ず】対応させて入力すること(見本と実際の問題が間違って出力されるから)
 var mihon = "ウイルス,迷惑メール,なりすまし,不正アクセス,情報漏えい," +
 		"個人情報,ぜい弱性,サイバーテロ,スマートフォンアプリ,改ざん," +
 		"パスワード,セキュリティー,ワンクリック詐欺,偽サイト,ウイルス対策ソフト," +
 		"ランサムウェア,遠隔操作,標的型攻撃,暗号化,フィッシング詐欺," +
 		"マイナンバー制度,バックアップ,スパイウェア,トロイの木馬,踏み台," +
-		"リスト型攻撃";
+		"リスト型攻撃,ボット,マルウェア";
 //キーコードを格納する配列
 var kcode = new Array(65,66,67,68,69,70,71,72,73,
                       74,75,76,77,78,79,80,81,82,
@@ -45,7 +45,7 @@ var g_lg=new Array();
 var mondai;       //問題の文字列を格納
 var cnt=0;             //何問目か格納
 var wcn=0;			  //ミスタイプカウント
-var qs=25;			//問題数 (増減に合わせて変更すること)
+var qs=27;			//問題数 (増減に合わせて変更すること)
 var q_cnt=0;
 var typStart,typEnd;   //開始時と終了時の時刻を格納
 var sc_cnt=0;
