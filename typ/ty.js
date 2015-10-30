@@ -17,7 +17,7 @@ var moji1 = "UIRUSU,MEIWAKUME-RU,NARISUMASI,HUSEIAKUSESU,ZYOUHOUROUEI," +
 		"KOZINNZYOUHOU,ZEIZYAKUSEI,SAIBA-TERO,SUMA-TOFONNAPURI,KAIZAN," +
 		"PASUWA-DO,SEKYURITEXI-,WANNKURIKKUSAGI,NISESAITO,UIRUSUTAISAKUSOHUTO," +
 		"RANNSAMUUXEA,ENNKAKUSOUSA,HYOUTEKIGATAKOUGEKI,ANNGOUKA,FISSINNGUSAGI," +
-		"MAINANNBA-SEIDO,BAKKUAPPU,SUPAIUXEA,TOROINOMOKUBA,HUMIDAI" +
+		"MAINANNBA-SEIDO,BAKKUAPPU,SUPAIUXEA,TOROINOMOKUBA,HUMIDAI," +
 		"RISUTOGATAKOUGEI";
 //  ↑↓は【必ず】対応させて入力すること(見本と実際の問題が間違って出力されるから)
 var mihon = "ウイルス,迷惑メール,なりすまし,不正アクセス,情報漏えい," +
@@ -50,8 +50,10 @@ var q_cnt=0;
 var typStart,typEnd;   //開始時と終了時の時刻を格納
 var sc_cnt=0;
 var p_cnt=0;
+var sc=0;
 var p_flag=0;
 var s_flag=0;
+var e_flag=0;
 
 var mihon_s;			//スクリーン出力用変数
 
@@ -184,7 +186,10 @@ function result(){
     document.getElementById("mihon").innerHTML = "";
     document.getElementById("q_count").innerHTML= "";
 
+    e_flag=1;
+
 	var obj_link;
+	var name_form;
 	//全文字入力していたら、終了時間を記録する
     typEnd = new Date();
 
@@ -204,7 +209,7 @@ function result(){
     var pct="パーフェクト:"+p_cnt;
     var mcnt="打った文字数:"+sc_cnt;
 
-    var sc=100000-(keika+wcn*100-sc_cnt*100-p_cnt*1000);
+    sc=100000-(keika+wcn*100-sc_cnt*100-p_cnt*1000);
 
     if(sc<0)sc=0;
 
@@ -228,26 +233,21 @@ function result(){
 
 
     obj_link=document.getElementById( "ext" );
+    name_form=document.getElementById("name");
     obj_link.style.display="";
+    name_form.style.display="";
 
-
-
-
-
-    var xhr=new XMLHttpRequest();
-
-    xhr.onreadystatechange=readyStateChange();
-
-    xhr.open("GET",'test.txt',false);
-    xhr.send("");
 
 }
 
-function readyStateChange(){
-	if(req.readyState==4){
-		alert(req.responseText);
-	}
+function form_send(){
+
+	var tgt=document.getElementById("name");
+	var name=document.forms.sc_input.sc_name.value;
+	tgt.innerText=name;
+
 }
+
 
 //キー入力を受け取る関数
 function typeGame(evt)
@@ -302,10 +302,12 @@ function typeGame(evt)
     }
 
   }else{
+	  if(e_flag==0){
 	  p_flag=1;
       wcn++;
       document.bgColor="#dc143c";
       setTimeout("document.bgColor='#ccffcc';",100);
+	  }
   }
 
 }
