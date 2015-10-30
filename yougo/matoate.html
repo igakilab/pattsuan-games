@@ -1,0 +1,212 @@
+
+<html>
+ <head>
+ <meta charset="utf-8">
+ <title>用語探しゲーム</title>
+
+<script language="JavaScript">
+
+x=0;
+num = 5; // 入れ替える画像の枚数(最初の画像も含める)
+nme = "g_" // 画像のディレクトリとファイル名の数字と拡張子より前の部分
+exp = "png" // 拡張子
+nma = "s_"
+var PassSec=1;
+ y= new Array(0,0,0,0,0);
+  t= new Array(1,2,3,4,5);
+game=0;
+var LIMIT_TIME = 60;
+
+function showPassage() {
+if(LIMIT_TIME==0){
+var result =window.confirm("おめでとうございます。\nあなたのスコアは"+game+"です。\nゲームをリトライしますか？");
+if(result){
+location.reload();
+}
+
+}
+     LIMIT_TIME -=PassSec;
+
+   var msg = "残り " +   LIMIT_TIME +"秒"; // 表示文作成
+   document.getElementById("PassageArea").innerHTML = msg; // 表示更新
+
+}
+
+function changeImage() {
+
+document.setumei.src = nma + t[0] + "." + exp;
+if(t[0]>=26){
+game-=100;
+   document.getElementById("score").innerHTML="スコア:"+ (game);
+   }else{
+game+=100;
+   document.getElementById("score").innerHTML="スコア:"+ (game);
+}
+ t[0]=Math.floor(Math.random()*36);
+document.ballImage.src = nme + t[0] + "." + exp;
+   y[0]=0;
+document.ballImage.style.left=Math.random()*670;
+}
+
+function changeImage1() {
+document.setumei.src = nma + t[1] + "." + exp;
+if(t[1]>=26){
+game-=100;
+   document.getElementById("score").innerHTML="スコア:"+ (game);
+   }else{
+game+=100;
+ document.getElementById("score").innerHTML="スコア:"+ (game);
+}
+   t[1]=Math.floor(Math.random()*36);
+   document.ballImage1.src = nme + t[1] + "." + exp;
+   y[1]=0;
+document.ballImage1.style.left=Math.random()*670;
+}
+function changeImage2() {
+
+document.setumei.src = nma + t[2] + "." + exp;
+if(t[2]>=26){
+game-=100;
+   document.getElementById("score").innerHTML="スコア:"+ (game);
+   }else{
+game+=100;
+ document.getElementById("score").innerHTML="スコア:"+ (game);
+}
+ t[2]=Math.floor(Math.random()*36);
+   document.ballImage2.src = nme + t[2] + "." + exp;
+
+   y[2]=0;
+   document.ballImage2.style.left=Math.random()*670;
+
+
+}
+function changeImage3() {
+  document.setumei.src = nma + t[3] + "." + exp;
+if(t[3]>=26){
+game-=100;
+   document.getElementById("score").innerHTML="スコア:"+ (game);
+   }else{
+game+=100;
+ document.getElementById("score").innerHTML="スコア:"+ (game);
+}
+   t[3]=Math.floor(Math.random()*36);
+   document.ballImage3.src = nme + t[3] + "." + exp;
+
+   y[3]=0;
+document.ballImage3.style.left=Math.random()*670;
+}
+
+function changeImage4() {
+document.setumei.src = nma + t[4] + "." + exp;
+if(t[4]>=26){
+game-=100;
+   document.getElementById("score").innerHTML="スコア:"+ (game);
+   }else{
+game+=100;
+ document.getElementById("score").innerHTML="スコア:"+ (game);
+}
+ t[4]=Math.floor(Math.random()*36);
+   document.ballImage4.src = nme + t[4] + "." + exp;
+
+   y[4]=0;
+document.ballImage4.style.left=Math.random()*670;
+
+}
+ function moveBall()
+ {
+y[0]+=Math.random()*1.5;
+document.ballImage.style.top=y[0];
+ if(y[0]>300){
+ t[0]=Math.floor(Math.random()*36);
+  document.ballImage.src = nme + t [0]+ "." + exp;
+y[0]=0;
+document.ballImage.style.left=Math.random()*670;
+ }
+ }
+
+ function moveBall1()
+ {
+y[1]+=Math.random()*1.5;
+document.ballImage1.style.top=y[1];
+ if(y[1]>300){
+ t[1]=Math.floor(Math.random()*36);
+  document.ballImage1.src = nme + t[1] + "." + exp;
+y[1]=0;
+document.ballImage1.style.left=Math.random()*670;
+ }
+ }
+
+ function moveBall2()
+ {
+y[2]+=Math.random()*1.5;
+document.ballImage2.style.top=y[2];
+ if(y[2]>300){
+ t[2]=Math.floor(Math.random()*36);
+  document.ballImage2.src = nme + t[2] + "." + exp;
+y[2]=0;
+document.ballImage2.style.left=Math.random()*670;
+ }
+ }
+
+ function moveBall3()
+ {
+y[3]+=Math.random()*1.5;
+document.ballImage3.style.top=y[3];
+ if(y[3]>300){
+ t[3]=Math.floor(Math.random()*36);
+  document.ballImage3.src = nme + t[3] + "." + exp;
+y[3]=0;
+document.ballImage3.style.left=Math.random()*670;
+ }
+ }
+  function moveBall4()
+ {
+y[4]+=Math.random()*1.5;
+document.ballImage4.style.top=y[4];
+ if(y[4]>300){
+ t[4]=Math.floor(Math.random()*36);
+  document.ballImage4.src = nme + t[4] + "." + exp;
+y[4]=0;
+document.ballImage4.style.left=Math.random()*670;
+ }
+ }
+
+function startfnc(){
+setInterval('showPassage()',1000);
+setInterval('moveBall()',Math.random()*10);
+setInterval('moveBall1()',Math.random()*10);
+setInterval('moveBall2()',Math.random()*10);
+setInterval('moveBall3()',Math.random()*10);
+setInterval('moveBall4()',Math.random()*10);
+
+}
+ </script>
+
+ </head>
+ <body bgcolor=" #FFE4B5 ">
+ <style="background-color: black;>
+<p id="PassageArea"style="position:absolute;left:750px;top:16px;color: white; font-size: 20px; background-color: #000000; text-align: center; margin: 0 auto; width: 150px; height: 60px;">残り 60秒</p>
+    <div id="score" style="position:absolute;left:750px;top:40px;color: white; font-size: 20px; background-color: #000000; text-align: center; margin: 0 auto; width: 150px; height: 30px;">スコア:0</div>
+
+<img src="waku.png" style="position:absolute;left:0px;top:0px;width:750px; height: 390px; ">
+<img src="s_36.png" name="setumei" style="position:absolute;left:750px;top:120px;width:300px; height: 250px; ">
+
+<A href="JavaScript:startfnc()">
+ <img src="st_btn.png" style="position:absolute;left:750px;top:80px;width:90px; height: 35px;"> </A>
+<A href="JavaScript:changeImage()">
+ <img src="g_1.png" name="ballImage" style="position:absolute;left:50px;top:0px;width:70px; height: 70px;z-index: "> </A>
+
+ <A  href="JavaScript:changeImage1()">
+ <img src="g_2.png" name="ballImage1" style="position:absolute;left:150px;top:0px;width:70px; height: 70px;z-index: "></A>
+
+<A  href="JavaScript:changeImage2()">
+ <img src="g_3.png" name="ballImage2" style="position:absolute;left:250px;top:0px;width:70px; height: 70px;z-index: "></A>
+
+<A  href="JavaScript:changeImage3()">
+ <img src="g_4.png" name="ballImage3" style="position:absolute;left:350px;top:0px;width:70px; height: 70px;z-index: "></A>
+
+<A  href="JavaScript:changeImage4()">
+ <img src="g_5.png" name="ballImage4" style="position:absolute;left:450px;top:0px;width:70px; height: 70px;z-index: "></A>
+
+ </body>
+ </html>
