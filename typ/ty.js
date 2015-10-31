@@ -35,7 +35,7 @@ var kcode = new Array(65,66,67,68,69,70,71,72,73,
 var rnd = new Array();
 
 //乱数を格納する配列
-var rm;;
+var rm;
 
 
 //単語の長さを格納する配列4
@@ -154,7 +154,7 @@ function gameSet()
   document.getElementById("waku").innerHTML = mondai.slice(1,mondai.length);
   //<--add end
 
-  document.getElementById("q_count").innerHTML = q_cnt+1;
+  document.getElementById("q_count").innerHTML = q_cnt+1+"問目";
 
 }
 
@@ -245,7 +245,7 @@ function form_send(){
 	var tgt=document.getElementById("name");
 	var name=document.forms.sc_input.sc_name.value;
 	tgt.innerText=name;
-
+	//DWR関数呼び出しはここ
 }
 
 
