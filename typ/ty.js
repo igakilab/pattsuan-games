@@ -246,6 +246,7 @@ function form_send(){
 	var name=document.forms.sc_input.sc_name.value;
 	tgt.innerText=name;
 	//DWR関数呼び出しはここ
+
 }
 
 
@@ -292,7 +293,7 @@ function typeGame(evt)
     {
     	q_cnt++;
     	s_flag=1;
-    	if(q_cnt==2){
+    	if(q_cnt==10){
     		result();
     	}else{
     		if(p_flag==0)p_cnt++;
