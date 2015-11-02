@@ -17,7 +17,7 @@ var moji1 = "UIRUSU,MEIWAKUME-RU,NARISUMASI,HUSEIAKUSESU,ZYOUHOUROUEI," +
 		"KOZINNZYOUHOU,ZEIZYAKUSEI,SAIBA-TERO,SUMA-TOFONNAPURI,KAIZAN," +
 		"PASUWA-DO,SEKYURITHI-,WANNKURIKKUSAGI,NISESAITO,UIRUSUTAISAKUSOHUTO," +
 		"RANNSAMUWEA,ENNKAKUSOUSA,HYOUTEKIGATAKOUGEKI,ANNGOUKA,FISSINNGUSAGI," +
-		"MAINANNBA-SEIDO,BAKKUAPPU,SUPAIUWEA,TOROINOMOKUBA,HUMIDAI," +
+		"MAINANNBA-SEIDO,BAKKUAPPU,SUPAIWEA,TOROINOMOKUBA,HUMIDAI," +
 		"RISUTOGATAKOUGEI,BOTTO,MARUWEA";
 //  ↑↓は【必ず】対応させて入力すること(見本と実際の問題が間違って出力されるから)
 var mihon = "ウイルス,迷惑メール,なりすまし,不正アクセス,情報漏えい," +
@@ -203,7 +203,7 @@ function result(){
     var msec = keika % 1000;
 
     //問題終了を告げる文字列を作成
-    var fin="GAME終了";
+    var fin="ゲーム終了";
     var tm="時間："+sec+"秒"+msec
     var wng="ミスタイプ数 :"+wcn;
     var pct="パーフェクト:"+p_cnt;
@@ -240,7 +240,7 @@ function result(){
 
 }
 
-function form_send(){
+/*function form_send(){
 
 	var tgt=document.getElementById("name");
 	var name=document.forms.sc_input.sc_name.value;
@@ -256,7 +256,7 @@ function form_send(){
 	tgt.innerText=eli;
 	//DWR関数呼び出しはここ
 
-}
+}*/
 
 
 //キー入力を受け取る関数
