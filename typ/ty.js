@@ -244,7 +244,16 @@ function form_send(){
 
 	var tgt=document.getElementById("name");
 	var name=document.forms.sc_input.sc_name.value;
-	tgt.innerText=name;
+	var id=$("#id_input").val();
+	ScoreManager.addScore(id,name,sc);
+	ScoreManager.getRecord(id, function(list){
+		  var eli = $("<ol></ol>");
+		  for(var i=0; i<list.length; i++){
+			eli.append($("<li></li>").text(list[i].name + ", " + list[i].score));
+		  }
+		  $("#rankings").append(eli);
+	  });
+	tgt.innerText=eli;
 	//DWR関数呼び出しはここ
 
 }
