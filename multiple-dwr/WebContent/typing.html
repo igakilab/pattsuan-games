@@ -6,6 +6,7 @@
     <h1>ランキングベスト10!!</h1>
 	<h2>タイピングゲーム</h2>
     <p>
+    <font size = "5">まず恐れ入りますがidの場所に<font size = "5" color = "#ff0000">0</font>を入力してください。<br>
       <span id="error_message" class="error"></span>
       id:<input type="text" id="id_input" /><br>
       name:<input type="text" id="name" /><br>
@@ -50,7 +51,7 @@
     	  //alert("get" + id);
     	  var id = $("#id_input").val();
     	  $("#rankings").empty();
-    	  $("#rankings").append("これは id:" + id + "のランキングです");
+    	 // $("#rankings").append("これは id:" + id + "のランキングです");
 		  ScoreManager.getRecord(id, function(list){
 			  var eli = $("<ol></ol>");
 			  for(var i=0; i<list.length; i++){
