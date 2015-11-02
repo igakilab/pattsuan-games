@@ -6,9 +6,8 @@
     <h1>ランキングベスト10!!</h1>
 	<h2>セキュリティクイズ</h2>
     <p>
-    <font size = "5">まず恐れ入りますがidの場所に<font size = "5" color = "#ff0000">1</font>を入力してください。<br>
       <span id="error_message" class="error"></span>
-      id:<input type="text" id="id_input" /><br>
+      <input type="text" id="id_input" value="1" disabled style="display:none" />
       name:<input type="text" id="name" /><br>
       score:<input type="text" id="score" /><br>
       <button onclick="addRec()">データ追加</button>
@@ -44,7 +43,7 @@
     	  var id = $("#id_input").val();
     	  var name = $("#name").val();
     	  var score = $("#score").val();
-    	  ScoreManager.addScore(id, name, score);
+    	  ScoreManager.addScore(parseInt(id), name, score);
       }
 
       function getRank(){
