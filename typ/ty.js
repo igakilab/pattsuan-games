@@ -13,9 +13,19 @@ var moji = new Array("A","B","C","D","E","F","G","H","I",
 
 //問題として入力する文字列
 //単語は","で区切って入力
-var moji1 = "UIRUSU,MEIWAKUME-RU,NARISUMASI,HUSEIAKUSESU,ZYOUHOUROUEI,KOZINNZYOUHOU,ZEIZYAKUSEI,SAIBA-TERO,SUMA-TOHUXONNAPURI,KAIZAN,PASUWA-DO,SEKYURITEXI-,WANNKURIKKUSAGI,NISESAITO,UIRUSUTAISAKUSOHUTO,RANNSAMUUXEA,ENNKAKUSOUSA";
+var moji1 = "UIRUSU,MEIWAKUME-RU,NARISUMASI,HUSEIAKUSESU,ZYOUHOUROUEI," +
+		"KOZINNZYOUHOU,ZEIZYAKUSEI,SAIBA-TERO,SUMA-TOFONNAPURI,KAIZAN," +
+		"PASUWA-DO,SEKYURITHI-,WANNKURIKKUSAGI,NISESAITO,UIRUSUTAISAKUSOHUTO," +
+		"RANNSAMUWEA,ENNKAKUSOUSA,HYOUTEKIGATAKOUGEKI,ANNGOUKA,FISSINNGUSAGI," +
+		"MAINANNBA-SEIDO,BAKKUAPPU,SUPAIUWEA,TOROINOMOKUBA,HUMIDAI," +
+		"RISUTOGATAKOUGEI,BOTTO,MARUWEA";
 //  ↑↓は【必ず】対応させて入力すること(見本と実際の問題が間違って出力されるから)
-var mihon = "ウイルス,迷惑メール,なりすまし,不正アクセス,情報漏えい,個人情報,ぜい弱性,サイバーテロ,スマートフォンアプリ,改ざん,パスワード,セキュリティー,ワンクリック詐欺,偽サイト,ウイルス対策ソフト,ランサムウェア,遠隔操作";
+var mihon = "ウイルス,迷惑メール,なりすまし,不正アクセス,情報漏えい," +
+		"個人情報,ぜい弱性,サイバーテロ,スマートフォンアプリ,改ざん," +
+		"パスワード,セキュリティー,ワンクリック詐欺,偽サイト,ウイルス対策ソフト," +
+		"ランサムウェア,遠隔操作,標的型攻撃,暗号化,フィッシング詐欺," +
+		"マイナンバー制度,バックアップ,スパイウェア,トロイの木馬,踏み台," +
+		"リスト型攻撃,ボット,マルウェア";
 //キーコードを格納する配列
 var kcode = new Array(65,66,67,68,69,70,71,72,73,
                       74,75,76,77,78,79,80,81,82,
@@ -25,7 +35,8 @@ var kcode = new Array(65,66,67,68,69,70,71,72,73,
 var rnd = new Array();
 
 //乱数を格納する配列
-var rm = new Array();
+var rm;
+
 
 //単語の長さを格納する配列4
 var g_lg=new Array();
@@ -34,12 +45,15 @@ var g_lg=new Array();
 var mondai;       //問題の文字列を格納
 var cnt=0;             //何問目か格納
 var wcn=0;			  //ミスタイプカウント
-var qs=17;				//問題数 (増減に合わせて変更すること)
+var qs=27;			//問題数 (増減に合わせて変更すること)
 var q_cnt=0;
 var typStart,typEnd;   //開始時と終了時の時刻を格納
 var sc_cnt=0;
 var p_cnt=0;
+var sc=0;
 var p_flag=0;
+var s_flag=0;
+var e_flag=0;
 
 var mihon_s;			//スクリーン出力用変数
 
@@ -50,10 +64,9 @@ var mihon_arr=new Array(); //問題見本分割配列
 //0～4までの乱数を5個作成して配列rmに格納する関数
 function ransu()
 {
-  for ( var i = 0 ; i < qs ; i++ )
-  {
-    rm[i] = Math.floor( Math.random() * qs );
-  }
+
+    rm = Math.floor( Math.random() * qs );
+
 }
 
 //","区切りの文字列moji1を文字単位に分解し、それに対応した数値を配列rndに格納する関数
@@ -66,11 +79,11 @@ function set()
   ransu();										//乱数発生
 
   for(var i = 0 ; i < str.length ; i++){
-	var lg = str[rm[i]].length;					//単語の文字列の長さを取得
+	var lg = str[rm].length;					//単語の文字列の長さを取得
 	g_lg[i] = lg;								//文字列の長さを配列に格納
 	for(var s = 0 ; s < lg ; s++){
 		for(var u = 0 ; u < 27 ; u++){
-			if(moji[u] == str[rm[i]].charAt(s)){//文字探索
+			if(moji[u] == str[rm].charAt(s)){//文字探索
 				rnd[l] = u;						//同じ文字が見つかったらその数値情報を配列に格納
 				l++;							//配列のインデックスを移動
 				break;							//次の文字へ
@@ -82,10 +95,10 @@ function set()
 
 function gameKanri()
 {
-	
-	
+
+
 	gameSet();
-	
+
 	document.onkeydown = typeGame;  //キー押下時に関数typeGame()を呼び出す
 
 obj_link.disabled = true;
@@ -107,8 +120,8 @@ function gameSet()
   set();
 
   mihon_arr=mihon.split(",");
-  mihon_s=mihon_arr[rm[0]];
-  //問題文の作成
+  mihon_s=mihon_arr[rm];
+  //問題文の作成0
 
   	for(var j=0;j<g_lg[0];j++)
   	{
@@ -141,7 +154,7 @@ function gameSet()
   document.getElementById("waku").innerHTML = mondai.slice(1,mondai.length);
   //<--add end
 
-  document.getElementById("q_count").innerHTML = q_cnt;
+  document.getElementById("q_count").innerHTML = q_cnt+1+"問目";
 
 }
 
@@ -173,7 +186,10 @@ function result(){
     document.getElementById("mihon").innerHTML = "";
     document.getElementById("q_count").innerHTML= "";
 
+    e_flag=1;
+
 	var obj_link;
+	var name_form;
 	//全文字入力していたら、終了時間を記録する
     typEnd = new Date();
 
@@ -193,7 +209,9 @@ function result(){
     var pct="パーフェクト:"+p_cnt;
     var mcnt="打った文字数:"+sc_cnt;
 
-    var sc=100000-(keika*2+wcn*100-sc_cnt*100-p_cnt*1000);
+    sc=100000-(keika+wcn*100-sc_cnt*100-p_cnt*1000);
+
+    if(sc<0)sc=0;
 
     var sc_s="スコア : "+sc;
 
@@ -202,34 +220,34 @@ function result(){
 
     //問題枠にゲーム終了を表示
     document.getElementById("fin").innerHTML = fin;
+
     document.getElementById("time").innerHTML = tm;
+
     document.getElementById("mojicnt").innerHTML = mcnt;
+
     document.getElementById("perfect").innerHTML = pct;
+
     document.getElementById("wrgcnt").innerHTML = wng;
+
     document.getElementById("score").innerHTML = sc_s;
-    
-    
-    obj_link=document.getElementById( "ext" ); 
+
+
+    obj_link=document.getElementById( "ext" );
+    name_form=document.getElementById("name");
     obj_link.style.display="";
-    
-    
-    
-    
+    name_form.style.display="";
 
-    var xhr=new XMLHttpRequest();
-
-    xhr.onreadystatechange=readyStateChange();
-
-    xhr.open("GET",'test.txt',false);
-    xhr.send("");
 
 }
 
-function readyStateChange(){
-	if(req.readyState==4){
-		alert(req.responseText);
-	}
+function form_send(){
+
+	var tgt=document.getElementById("name");
+	var name=document.forms.sc_input.sc_name.value;
+	tgt.innerText=name;
+	//DWR関数呼び出しはここ
 }
+
 
 //キー入力を受け取る関数
 function typeGame(evt)
@@ -249,13 +267,14 @@ function typeGame(evt)
   {
     kc = evt.which;
   }
+
   //入力されたキーコードと、問題文のキーコードを比較
   if (kc == kcode[ rnd[cnt] ])
   {
     //以下、キーコードが一致した時の処理
 
     //最初の1文字が入力された時間を記録する
-    if (q_cnt==0)
+    if (cnt==0&&s_flag==0)
     {
       typStart = new Date();
     }
@@ -272,7 +291,8 @@ function typeGame(evt)
     else
     {
     	q_cnt++;
-    	if(q_cnt==10){
+    	s_flag=1;
+    	if(q_cnt==2){
     		result();
     	}else{
     		if(p_flag==0)p_cnt++;
@@ -282,10 +302,12 @@ function typeGame(evt)
     }
 
   }else{
+	  if(e_flag==0){
 	  p_flag=1;
       wcn++;
       document.bgColor="#dc143c";
       setTimeout("document.bgColor='#ccffcc';",100);
+	  }
   }
 
 }
