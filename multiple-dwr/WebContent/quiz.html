@@ -1,0 +1,66 @@
+<html lang="ja">
+  <head>
+  <meta charset="utf-8">
+  <body bgcolor = "#FFE4E1">
+    <body>
+    <h1>ランキングベスト10!!</h1>
+	<h2>セキュリティクイズ</h2>
+    <p>
+      <span id="error_message" class="error"></span>
+      id:<input type="text" id="id_input" /><br>
+      name:<input type="text" id="name" /><br>
+      score:<input type="text" id="score" /><br>
+      <button onclick="addRec()">データ追加</button>
+      <button onclick="getRank()">ランキング更新</button>
+    </p>
+    <div id="rankings"></div>
+    <script type="text/javascript" src="dwr/engine.js"></script>
+    <script type="text/javascript" src="dwr/util.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.serialize.js"></script>
+    <script type="text/javascript" src="dwr/interface/MultiplePrinter.js"></script>
+    <script type="text/javascript" src="dwr/interface/ScoreManager.js"></script>
+    <script type="text/javascript">
+    function Lsize(){document.body.style.fontSize = "180%";}
+    function Msize(){document.body.style.fontSize = "150%";}
+      function update(){
+        var formData = $('#csprinter_form').serializeJson();
+        MultiplePrinter.execute(formData, {
+          callback: function(data) {
+            $('#csprinterReply').text(data);
+            $('#error_message').text("");
+          },
+          errorHandler: updateErrorMessage
+        });
+      }
+      Msize();
+      function updateErrorMessage(message, exception){
+        $('#error_message').text(message);
+        $('#csprinterReply').text("");
+      }
+
+      function addRec(){
+    	  var id = $("#id_input").val();
+    	  var name = $("#name").val();
+    	  var score = $("#score").val();
+    	  ScoreManager.addScore(id, name, score);
+      }
+
+      function getRank(){
+    	  //alert("get" + id);
+    	  var id = $("#id_input").val();
+    	  $("#rankings").empty();
+    	  $("#rankings").append("これは id:" + id + "のランキングです");
+		  ScoreManager.getRecord(id, function(list){
+			  var eli = $("<ol></ol>");
+			  for(var i=0; i<list.length; i++){
+				eli.append($("<li></li>").text(list[i].name + ", " + list[i].score));
+			  }
+			  $("#rankings").append(eli);
+		  });
+      }
+    </script>
+  </head>
+
+  </body>
+</html>
