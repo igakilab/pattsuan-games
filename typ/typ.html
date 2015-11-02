@@ -5,9 +5,9 @@
 <title>タイピングゲーム</title>
 </head>
 <body bgcolor="#ccffcc">
-<script type="text/javascript" src="./ty.js">
+<script type="text/javascript" src="./ty.js"></script>
+<link rel="import" type="text/html" href="../multiple-dwr/WebContent/typing.html">
 
-</script>
  <body onload="gameKanri()">
  <center>
 
@@ -34,6 +34,8 @@
 
 <form name="sc_ipt" id="sc_input" action="">
 <input type="text" name="name" id="sc_name" size="5">
+<input type="text" id="id_input"  value="0" style="display:none">
+<input type="text" id="score"  style="display:none">
 <input type="button" value="send" onclick="form_send()">
 </form>
 </div>
