@@ -3,7 +3,7 @@
 使用物：eclipse、github、PC一台
 主な流れ：eclipseを使用してゲームプログラムを実行
 
-Eclipseのダウンロード方法：eclipseはhttp://mergedoc.osdn.jp/　からダウンロードできます。
+Eclipseのダウンロード方法：eclipseはつぎのURL次のからダウンロード可能、http://mergedoc.osdn.jp/
 
 1.eclipse Pleiades All in One Javaをクリック（私たちは4.5を使用）
 
