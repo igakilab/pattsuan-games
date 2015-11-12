@@ -1,8 +1,9 @@
 ゲームで学ぶコンピュータコンピュータセキュリティのマニュアル
+
 使用物：eclipse、github、PC一台
 主な流れ：eclipseを使用してゲームプログラムを実行
 
-Eclipseのダウンロード方法：eclipseはhttp://mergedoc.osdn.jp/からダウンロードできます。
+Eclipseのダウンロード方法：eclipseはhttp://mergedoc.osdn.jp/　からダウンロードできます。
 1.eclipse Pleiades All in One Javaをクリック（私たちは4.5を使用）
 2.Full Edition欄のJavaをクリック（bitは64を使用）
 3.ダウンロードが開始されるので保存してください。フォルダの中にeclipseファイルがあるのでその中のeclipseアプリケーションを実行するとeclipseが使えます。
