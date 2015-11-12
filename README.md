@@ -20,6 +20,7 @@ Eclipseのダウンロード方法：eclipseはhttp://mergedoc.osdn.jp/ から�
 注意：座標指定でゲームを作成したので使用PCはPC井垣研9と同じサイズの画面PCを使わないと正常な画面にならないです。
 
 参考文献
+
 1.EclipseでJavaScriptでtmlib.jsを使用してゲーム開発！の方法
 
 http://kneesockscollector.blog.fc2.com/blog-entry-48.html
