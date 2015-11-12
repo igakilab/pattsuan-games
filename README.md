@@ -16,7 +16,9 @@ Eclipseのダウンロード方法：eclipseはhttp://mergedoc.osdn.jp/ から�
 参考文献
 1.EclipseでJavaScriptでtmlib.jsを使用してゲーム開発！の方法
 http://kneesockscollector.blog.fc2.com/blog-entry-48.html
+
 2. JavaScript　無料のフリースクリプト集－JavaScriptサンプル集〔インタラクティブ編〕－デカゲーム（昔懐かしのドットイートゲーム）
 http://plusone.jpn.org/javascript/sample/dekagame/doteat/doteat.html
+
 3. IT用語辞典　e-Word
 http://e-words.jp/
