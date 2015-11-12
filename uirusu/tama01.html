@@ -1,0 +1,90 @@
+
+<script type="text/javascript"><!--
+
+myTamaWidth = 55; // 画像の幅(ピクセル)
+myTamaHeight = 40; // 画像の高さ(ピクセル)
+
+myX = 0; // 現在位置(X)
+myY = 0; // 現在位置(Y)
+myXs = 0; // 開始位置(X)
+myYs = 0; // 開始位置(Y)
+myXe = 0; // 最終位置(X)
+myYe = 0; // 最終位置(Y)
+rand=0;
+
+function myTamaMain(){
+myObj=document.getElementById("tama01").style;
+myXs = document.body.scrollLeft;
+myYs = document.body.scrollTop;
+myXe = myXs +document.body.clientWidth - myTamaWidth-250;
+myYe = myYs + document.body.clientHeight - myTamaHeight;
+
+rand=Math.random()*30;
+// 玉の移動角度(方向)を決める
+if (myX<=myXs) myAddX = Math.floor(Math.random()*rand)+10;
+if (myY<=myYs) myAddY = Math.floor(Math.random()*rand)+10;
+if (myX>=myXe) myAddX = (Math.floor(Math.random()*rand)+10)*(-1);
+if (myY>=myYe) myAddY = (Math.floor(Math.random()*rand)+10)*(-1);
+
+// 玉を移動
+myX = myX + myAddX;
+if (myX < myXs) myX=myXs;
+else if (myX > myXe) myX=myXe;
+
+myY = myY + myAddY;
+if (myY < myYs) myY=myYs;
+else if (myY > myYe) myY=myYe;
+
+myObj.left = myX;
+myObj.top = myY;
+}
+
+myX1 = 0; // 現在位置(X)
+myY1= 0; // 現在位置(Y)
+myXs1 = 0; // 開始位置(X)
+myYs1 = 0; // 開始位置(Y)
+myXe1 = 0; // 最終位置(X)
+myYe1 = 0; // 最終位置(Y)
+rand1=0;
+
+function myTamaMain1(){
+myObj1=document.getElementById("tama02").style;
+myXs1 = document.body.scrollLeft;
+myYs1 = document.body.scrollTop;
+myXe1 = myXs +document.body.clientWidth - myTamaWidth-250;
+myYe1 = myYs + document.body.clientHeight - myTamaHeight;
+
+rand1=Math.random()*30;
+// 玉の移動角度(方向)を決める
+if (myX1<=myXs1) myAddX1 = Math.floor(Math.random()*rand1)+10;
+if (myY1<=myYs1) myAddY1 = Math.floor(Math.random()*rand1)+10;
+if (myX1>=myXe1) myAddX1 = (Math.floor(Math.random()*rand1)+10)*(-1);
+if (myY1>=myYe1) myAddY1 = (Math.floor(Math.random()*rand1)+10)*(-1);
+
+// 玉を移動
+myX1 = myX1 + myAddX1;
+if (myX1 < myXs1) myX1=myXs1;
+else if (myX1 > myXe1) myX1=myXe1;
+
+myY1 = myY1 + myAddY1;
+if (myY1 < myYs1) myY1=myYs1;
+else if (myY1 > myYe1) myY1=myYe1;
+
+myObj1.left = myX1;
+myObj1.top = myY1;
+}
+
+setInterval( "myTamaMain()", 100 ); // 0.1秒周期に動かす
+setInterval( "myTamaMain1()", 100 ); // 0.1秒周期に動かす
+
+// --></script>
+
+
+<DIV ID="tama01" STYLE="position:absolute">
+<img src="uirusu01.png" width="55" height="40">
+</DIV>
+
+<DIV ID="tama02" STYLE="position:absolute">
+<img src="uirusu01.png" width="55" height="40">
+</DIV>
+
