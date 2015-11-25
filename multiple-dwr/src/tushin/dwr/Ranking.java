@@ -5,7 +5,7 @@ public class Ranking {
 	Record[] records;
 
 	public Ranking(){
-		init(10);
+		init(30);
 	}
 
 	public Ranking(int len){
@@ -29,8 +29,8 @@ public class Ranking {
 			}
 			i--;
 		}
-		
-		records[i] = rec;
+
+		if( i < records.length ) records[i] = rec;
 	}
 
 	public Record[] getRecord(){

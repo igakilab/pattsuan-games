@@ -2,8 +2,9 @@ package tushin.dwr;
 
 public class ScoreManager {
 	Ranking[] ranking = new Ranking[3];
-	
+
 	public ScoreManager(){
+
 		for(int i=0; i<ranking.length; i++){
 			ranking[i] = new Ranking();
 		}

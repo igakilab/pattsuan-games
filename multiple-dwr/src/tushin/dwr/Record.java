@@ -5,7 +5,7 @@ public class Record {
 	private int score;
 
 	public Record(){
-		name = "名無しの野郎";
+		name = "名無し";
 		score = 0;
 	}
 

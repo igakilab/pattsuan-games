@@ -3,15 +3,16 @@
   <meta charset="utf-8">
   <body bgcolor = "#FFE4E1">
     <body>
-    <h1>ランキングベスト10!!</h1>
+    <h1>ランキングベスト30!!</h1>
 	<h2>用語探しゲーム</h2>
     <p>
       <span id="error_message" class="error"></span>
-      id:<input type="text" id="id_input" /><br>
+      <input type="text" id="id_input" value="2" disabled style="display:none" />
       name:<input type="text" id="name" /><br>
       score:<input type="text" id="score" /><br>
       <button onclick="addRec()">データ追加</button>
       <button onclick="getRank()">ランキング更新</button>
+      <input type="button" onclick="location.href='games/title/menu.html'" value ="メニューへ戻る" ></button>
     </p>
     <div id="rankings"></div>
     <script type="text/javascript" src="dwr/engine.js"></script>
@@ -50,7 +51,7 @@
     	  //alert("get" + id);
     	  var id = $("#id_input").val();
     	  $("#rankings").empty();
-    	  $("#rankings").append("これは id:" + id + "のランキングです");
+    	 // $("#rankings").append("これは id:" + id + "のランキングです");
 		  ScoreManager.getRecord(id, function(list){
 			  var eli = $("<ol></ol>");
 			  for(var i=0; i<list.length; i++){
