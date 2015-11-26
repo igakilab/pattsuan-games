@@ -6,6 +6,7 @@
 Eclipseのダウンロード方法：eclipseはつぎのURL次のからダウンロード可能、http://mergedoc.osdn.jp/
 
 Windowsの環境変数設定
+
 ・コンピュータを右クリック->プロパティ(あるいはコントロールパネルの「システム」）->システムの詳細設定->環境変数
 ・環境変数でユーザ/システム環境変数のどちらかに，変数名：JAVA_HOME，変数値：C:\pleiades4.5\java\8 (要はJDKのbinがあるディレクトリの一つ上）を指定する
 同じく変数名：JRE_HOME, 変数値：C:\pleiades4.5\java\8\jre (JREのbinがあるディレクトリの一つ上)を指定する。
