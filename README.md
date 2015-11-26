@@ -33,6 +33,15 @@ Windowsの環境変数設定
 
 5.titleフォルダのmenu.htmlを右クリック->次で開く->Webブラウザーでゲームを実行できます。
 
+ゲームの起動方法：ブラウザ使用
+
+**eclipseでbuild.xmlでAntビルドが完了していることが前提**
+
+1.前項4.の通りに/pleiades4.5/tomcat/7/bin内のstartupをクリックしtomcatを起動する
+
+2.ブラウザでhttp://localhost:8080/multiple-dwr/title/menu.html　にアクセス
+
+
 
 ゲームの流れ：
 
