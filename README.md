@@ -25,7 +25,7 @@ Windowsの環境変数設定
 
 1.githubのigakilabからpattsuan-ganmesのmasterブランチにゲームのファイルがあるのですべてコピーしてください。
 
-2.eclipseを起動してもらい任意の場所にコピーしたデータを張り付けてください。
+2.eclipseを起動してもらい先ほどeclipceにインポートしてください。
 
 3.ランキングを表示するためにmultiple-dwrフォルダのbuild.xmlを右クリックし実行、Antビルド(2)をクリックする
 
